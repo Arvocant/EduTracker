@@ -1,32 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  static const String _title = 'eduTracker';
+class login extends StatefulWidget {
+  const login({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
-        body: const Login(),
-      ),
-    );
-  }
+  State<login> createState() => _login();
 }
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
-
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
+class _login extends State<login> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -40,9 +21,9 @@ class _LoginState extends State<Login> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'eduTracker',
+                  'TutorialKart',
                   style: TextStyle(
-                      color: Color.fromARGB(255, 148, 10, 0),
+                      color: Colors.blue,
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
@@ -94,10 +75,10 @@ class _LoginState extends State<Login> {
                 )),
             Row(
               children: <Widget>[
-                const Text('No account yet?'),
+                const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign up',
+                    'Sign in',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
