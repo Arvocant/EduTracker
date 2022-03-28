@@ -3,6 +3,7 @@
 import 'package:edutracker/LoginSignupScreen/login_final.dart';
 import 'package:edutracker/LoginSignupScreen/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'LoginSignupScreen/login.dart';
 
@@ -15,6 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
     return MaterialApp(
       title: _title,
       theme: ThemeData(primarySwatch: Colors.red),
