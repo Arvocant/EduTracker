@@ -29,6 +29,8 @@ class _login_finalState extends State<login_final> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          hintText: "Email",
           prefixIcon: Icon(Icons.mail),
           contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15)),
     );
@@ -42,8 +44,14 @@ class _login_finalState extends State<login_final> {
         passwordController.text = value!;
       },
       textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          hintText: "Password",
+          prefixIcon: Icon(Icons.key),
+          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15)),
     );
 
+    final loginButton = Material();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
