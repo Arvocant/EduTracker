@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
-  State<login> createState() => _login();
+  State<Login> createState() => _LoginState();
 }
 
-class _login extends State<login> {
+class _LoginState extends State<Login> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -21,9 +21,9 @@ class _login extends State<login> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'TutorialKart',
+                  'eduTracker',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 148, 10, 0),
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
@@ -75,10 +75,10 @@ class _login extends State<login> {
                 )),
             Row(
               children: <Widget>[
-                const Text('Does not have account?'),
+                const Text('No account yet?'),
                 TextButton(
                   child: const Text(
-                    'Sign in',
+                    'Sign up',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
