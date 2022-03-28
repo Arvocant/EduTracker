@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "233884006174",
+    "firebase_url": "https://edutrackerdb-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "edutrackerdb",
+    "storage_bucket": "edutrackerdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233884006174:android:15fa4fa85e916053d93b0f",
+        "android_client_info": {
+          "package_name": "com.example.edutracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233884006174-veti95r8djqlahjen96ecg8b6gghumdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDetnxdRhrWU9edhcgzrY-3Fmlodv9apEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233884006174-veti95r8djqlahjen96ecg8b6gghumdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
