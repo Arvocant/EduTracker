@@ -83,9 +83,10 @@ class DatabaseService {
         await ourDB.child('users').child(d.pid).set(d);
         print("Database has been succesfully created");
       } else
-        print("Database has been created before");
+        print("Database initialized");
     } on Exception catch (e) {
       print(e);
     }
   }
+
 }
