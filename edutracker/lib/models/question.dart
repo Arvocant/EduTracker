@@ -19,7 +19,7 @@ class Question {
   }
 
   Question.fromDB(this.qid, Map data) {
-    qid = data['qid'].toString();
+qid = data['qid'].toString();
     title = data['title'].toString();
     answ = data['answ'].toString();
     type = Type.values.firstWhere((e) => e.toString() == data['type'].toString());
