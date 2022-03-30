@@ -8,10 +8,10 @@ class NavigationService {
   final GlobalKey<NavigatorState> examNavigatorKey = new GlobalKey<NavigatorState>(debugLabel: "Exam Navigator");
   final GlobalKey<NavigatorState> settingsNavigatorKey = new GlobalKey<NavigatorState>(debugLabel: "Settings Navigator");
 
-  GlobalKey<NavigatorState> _currentNavigator;
+  late GlobalKey<NavigatorState> _currentNavigator;
   GlobalKey<NavigatorState> get currentNavigator => _currentNavigator;
 
-  String _currentRoutePath;
+  late String _currentRoutePath;
   String get currentRoutePath => _currentRoutePath;
 
   NavigationService() {
@@ -41,7 +41,7 @@ class NavigationService {
   Future<dynamic> replaceTo(String routeName) {
     print("Replacing $routeName in $currentNavigator");
     _currentRoutePath = routeName;
-    return _currentNavigator.currentState!.pushNamed(routeName);
+    return _currentNavigator.currentState!.pushReplacementNamed(routeName);
   }
 
   Future<dynamic> clearStackTo(String routeName) {
