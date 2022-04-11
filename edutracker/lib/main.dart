@@ -2,6 +2,7 @@
 
 import 'package:edutracker/LoginSignupScreen/login_final.dart';
 import 'package:edutracker/LoginSignupScreen/signup.dart';
+import 'package:edutracker/Students/studentList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: const SignUp(),
+        body: const StudentList(),
       ),
     );
   }
