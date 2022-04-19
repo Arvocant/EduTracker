@@ -6,6 +6,8 @@ class multipleChoice extends StatefulWidget {
 }
 
 class _multipleChoiceState extends State<multipleChoice> {
+  List<Icon> _scoreTracker;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,20 +19,95 @@ class _multipleChoiceState extends State<multipleChoice> {
           centerTitle: true,
         ),
         body: Center(
-          child: Column(children: [
-            Row(
-              children: const [
-                Icon(Icons.check_circle, color: Colors.green),
-                Icon(Icons.clear, color: Colors.red)
-              ],
-            ),
-            Container(
-              child: const Center(
-                child: Text('De vragen komen hier terecht',
-                    style: TextStyle(fontSize: 18)),
+          child: Column(
+            children: [
+              //Icons voor juist of fout
+              Row(
+                children: const [
+                  Icon(Icons.check_circle, color: Colors.green),
+                  Icon(Icons.clear, color: Colors.red)
+                ],
               ),
-            )
-          ]),
+              Container(
+                width: double.infinity,
+                height: 130.0,
+                margin: const EdgeInsets.only(bottom: 10, left: 30, right: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                decoration: BoxDecoration(color: Colors.red[900]),
+                child: const Center(
+                  child: Text('De vragen komen hier terecht',
+                      style: TextStyle(fontSize: 18, color: Colors.white)),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(15),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  decoration: BoxDecoration(
+                    color: null,
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: const Text(
+                    'Geef hier uw antwoord in',
+                    style: TextStyle(fontSize: 15.0),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(15),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  decoration: BoxDecoration(
+                    color: null,
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: const Text(
+                    'Geef hier uw antwoord in',
+                    style: TextStyle(fontSize: 15.0),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(15),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                  decoration: BoxDecoration(
+                    color: null,
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: const Text(
+                    'Geef hier uw antwoord in',
+                    style: TextStyle(fontSize: 15.0),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 40)),
+                onPressed: () {},
+                child: const Text('Volgende vraag'),
+              ),
+              //Score weergeven
+              Container(
+                padding: EdgeInsets.all(20),
+                child: const Text(
+                  '0/9',
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
         ));
   }
 }
