@@ -1,3 +1,4 @@
+import 'package:edutracker/ExamQuestions/answer.dart';
 import 'package:flutter/material.dart';
 
 class multipleChoice extends StatefulWidget {
@@ -6,7 +7,52 @@ class multipleChoice extends StatefulWidget {
 }
 
 class _multipleChoiceState extends State<multipleChoice> {
-  List<Icon> _scoreTracker;
+  List<Icon> _scoreTracker = [];
+  int _questionList = 0;
+  int _totalscore = 0;
+  bool answerSelected = false;
+  bool endQuiz = false;
+  bool correctAswerSelected = false;
+
+  void _questionAnswer(bool answerScore) {
+    setState(() {
+      //Antwoord is gekozen
+      answerSelected = true;
+      //Kijk of het antwoord juist is
+      if (answerScore) {
+        _totalscore++;
+        correctAswerSelected = true;
+      }
+      //Voeg de score tracker toe (optioneel)
+      _scoreTracker.add(
+        answerScore
+            ? Icon(Icons.check_circle, color: Colors.green)
+            : Icon(Icons.clear, color: Colors.red),
+      );
+      //Als alle vragen zijn geweest
+      if (_questionList + 1 == _questions.length) {
+        endQuiz = true;
+      }
+    });
+  }
+
+  void _nextQuestion() {
+    setState(() {
+      _questionList++;
+      answerSelected = false;
+      correctAswerSelected = false;
+    });
+    //Einde van de quiz
+    if (_questionList >= _questions.length) {
+      _goBack();
+    }
+  }
+
+  void _goBack() {
+    setState(() {
+      _questionList = 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +69,12 @@ class _multipleChoiceState extends State<multipleChoice> {
             children: [
               //Icons voor juist of fout
               Row(
-                children: const [
-                  Icon(Icons.check_circle, color: Colors.green),
-                  Icon(Icons.clear, color: Colors.red)
+                children: [
+                  if (_scoreTracker.length == 0)
+                    const SizedBox(
+                      height: 25,
+                    ),
+                  if (_scoreTracker.length > 0) ..._scoreTracker
                 ],
               ),
               Container(
@@ -35,74 +84,47 @@ class _multipleChoiceState extends State<multipleChoice> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 decoration: BoxDecoration(color: Colors.red[900]),
-                child: const Center(
-                  child: Text('De vragen komen hier terecht',
-                      style: TextStyle(fontSize: 18, color: Colors.white)),
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(15),
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                  decoration: BoxDecoration(
-                    color: null,
-                    border: Border.all(color: Colors.red),
-                  ),
-                  child: const Text(
-                    'Geef hier uw antwoord in',
-                    style: TextStyle(fontSize: 15.0),
+                child: Center(
+                  child: Text(
+                    _questions[_questionList]
+                        ['question'], //'De vragen komen hier terecht'
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
               ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(15),
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                  decoration: BoxDecoration(
-                    color: null,
-                    border: Border.all(color: Colors.red),
-                  ),
-                  child: const Text(
-                    'Geef hier uw antwoord in',
-                    style: TextStyle(fontSize: 15.0),
-                  ),
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(15),
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                  decoration: BoxDecoration(
-                    color: null,
-                    border: Border.all(color: Colors.red),
-                  ),
-                  child: const Text(
-                    'Geef hier uw antwoord in',
-                    style: TextStyle(fontSize: 15.0),
-                  ),
+              ...(_questions[_questionList]['answers']
+                      as List<Map<String, dynamic>>)
+                  .map(
+                (answer) => Answer(
+                  answerText: answer['answerText'],
+                  answerColor: answerSelected
+                      ? answer['score']
+                          ? Colors.green
+                          : Colors.red
+                      : Colors.white,
+                  answerTap: () {
+                    //Als het antwoord al geselecteerd was gebeurd er niets op onTap
+                    if (answerSelected) return;
+                    //Antwoord wordt geselecteerd
+                    _questionAnswer(answer['score']);
+                  },
                 ),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 40)),
-                onPressed: () {},
-                child: const Text('Volgende vraag'),
+                onPressed: () {
+                  if (!answerSelected) return;
+                  _nextQuestion();
+                },
+                child: Text(endQuiz ? 'Beeindigen' : 'Volgende vraag'),
               ),
               //Score weergeven
               Container(
                 padding: EdgeInsets.all(20),
-                child: const Text(
-                  '0/9',
+                child: Text(
+                  '${_totalscore.toString()}/${_questions.length}',
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
               ),
