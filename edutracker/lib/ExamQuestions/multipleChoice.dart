@@ -86,8 +86,8 @@ class _multipleChoiceState extends State<multipleChoice> {
                 decoration: BoxDecoration(color: Colors.red[900]),
                 child: Center(
                   child: Text(
-                    _questions[_questionList]
-                        ['question'], //'De vragen komen hier terecht'
+                    //_questions[_questionList]
+                    'question', //'De vragen komen hier terecht'
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
