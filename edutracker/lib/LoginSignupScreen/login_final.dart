@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class login_final extends StatefulWidget {
-  const login_final({Key? key}) : super(key: key);
+  const login_final({Key key}) : super(key: key);
 
   @override
   State<login_final> createState() => _login_finalState();
@@ -25,7 +25,7 @@ class _login_finalState extends State<login_final> {
       keyboardType: TextInputType.emailAddress,
       //validator: (),
       onSaved: (value) {
-        emailController.text = value!;
+        emailController.text = value;
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
@@ -41,7 +41,7 @@ class _login_finalState extends State<login_final> {
       keyboardType: TextInputType.emailAddress,
       //validator: (),
       onSaved: (value) {
-        passwordController.text = value!;
+        passwordController.text = value;
       },
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(

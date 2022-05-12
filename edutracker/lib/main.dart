@@ -13,7 +13,7 @@ import 'LoginSignupScreen/login.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   static const String _title = 'eduTracker';
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: openAnswerChoice(),
+        body: multipleChoice(),
       ),
     );
   }

@@ -86,8 +86,8 @@ class _multipleChoiceState extends State<multipleChoice> {
                 decoration: BoxDecoration(color: Colors.red[900]),
                 child: Center(
                   child: Text(
-                    //_questions[_questionList]
-                    'question', //'De vragen komen hier terecht'
+                    _questions[_questionList]['questionText']
+                        as String, //'De vragen komen hier terecht'
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
@@ -137,24 +137,27 @@ class _multipleChoiceState extends State<multipleChoice> {
 // ignore: prefer_const_declarations
 final _questions = const [
   {
-    'question': 'How long is New Zealand’s Ninety Mile Beach?',
+    'questionText': 'Q1. Who created Flutter?',
     'answers': [
-      {'answerText': '88km, so 55 miles long.', 'score': true},
-      {'answerText': '55km, so 34 miles long.', 'score': false},
-      {'answerText': '90km, so 56 miles long.', 'score': false},
+      {'answerText': 'Facebook', 'score': false},
+      {'answerText': 'Adobe', 'score': false},
+      {'answerText': 'Google', 'score': true},
     ],
   },
   {
-    'question':
-        'In which month does the German festival of Oktoberfest mostly take place?',
+    'questionText': 'Q2. What is Flutter?',
     'answers': [
-      {'answerText': 'January', 'score': false},
-      {'answerText': 'October', 'score': false},
-      {'answerText': 'September', 'score': true},
+      {'answerText': 'Android Development Kit', 'score': false},
+      {'answerText': 'Web Development Kit', 'score': false},
+      {
+        'answerText':
+            'SDK to build beautiful IOS, Android, Web & Desktop Native Apps',
+        'score': true
+      },
     ],
   },
   {
-    'question': 'Who composed the music for Sonic the Hedgehog 3?',
+    'questionText': 'Who composed the music for Sonic the Hedgehog 3?',
     'answers': [
       {'answerText': 'Britney Spears', 'score': false},
       {'answerText': 'Timbaland', 'score': false},
@@ -162,7 +165,8 @@ final _questions = const [
     ],
   },
   {
-    'question': 'In Georgia (the state), it’s illegal to eat what with a fork?',
+    'questionText':
+        'In Georgia (the state), it’s illegal to eat what with a fork?',
     'answers': [
       {'answerText': 'Hamburgers', 'score': false},
       {'answerText': 'Fried chicken', 'score': true},
@@ -170,7 +174,7 @@ final _questions = const [
     ],
   },
   {
-    'question':
+    'questionText':
         'Which part of his body did musician Gene Simmons from Kiss insure for one million dollars?',
     'answers': [
       {'answerText': 'His tongue', 'score': true},
@@ -179,7 +183,7 @@ final _questions = const [
     ],
   },
   {
-    'question': 'In which country are Panama hats made?',
+    'questionText': 'In which country are Panama hats made?',
     'answers': [
       {'answerText': 'Ecuador', 'score': true},
       {'answerText': 'Panama (duh)', 'score': false},
@@ -187,7 +191,7 @@ final _questions = const [
     ],
   },
   {
-    'question': 'From which country do French fries originate?',
+    'questionText': 'From which country do French fries originate?',
     'answers': [
       {'answerText': 'Belgium', 'score': true},
       {'answerText': 'France (duh)', 'score': false},
@@ -195,7 +199,7 @@ final _questions = const [
     ],
   },
   {
-    'question': 'Which sea creature has three hearts?',
+    'questionText': 'Which sea creature has three hearts?',
     'answers': [
       {'answerText': 'Great White Sharks', 'score': false},
       {'answerText': 'Killer Whales', 'score': false},
@@ -203,7 +207,8 @@ final _questions = const [
     ],
   },
   {
-    'question': 'Which European country eats the most chocolate per capita?',
+    'questionText':
+        'Which European country eats the most chocolate per capita?',
     'answers': [
       {'answerText': 'Belgium', 'score': false},
       {'answerText': 'The Netherlands', 'score': false},

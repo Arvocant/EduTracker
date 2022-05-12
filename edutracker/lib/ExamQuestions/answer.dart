@@ -5,17 +5,12 @@ class Answer extends StatelessWidget {
   final Color answerColor;
   final Function answerTap;
 
-  Answer(
-      {Key? key,
-      required this.answerText,
-      required this.answerColor,
-      required this.answerTap})
-      : super(key: key);
+  Answer({this.answerText, this.answerColor, this.answerTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      //onTap: answerTap,
+      onTap: answerTap,
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(15),
@@ -24,8 +19,8 @@ class Answer extends StatelessWidget {
           color: null,
           border: Border.all(color: Colors.red),
         ),
-        child: const Text(
-          'Geef hier uw antwoord in',
+        child: Text(
+          answerText,
           style: TextStyle(fontSize: 15.0),
         ),
       ),

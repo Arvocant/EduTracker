@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class openAnswerChoice extends StatefulWidget {
-  openAnswerChoice({Key? key}) : super(key: key);
+  openAnswerChoice({Key key}) : super(key: key);
 
   @override
   State<openAnswerChoice> createState() => _openAnswerChoiceState();
@@ -9,6 +9,7 @@ class openAnswerChoice extends StatefulWidget {
 
 class _openAnswerChoiceState extends State<openAnswerChoice> {
   bool endQuiz = false;
+  int questionList = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,9 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                   ),
+                  // onChanged: (value) {
+                  //   if (_openQuestions[questionList]['answer'] == value) {}
+                  // },
                 ),
               ),
             ),
@@ -59,3 +63,11 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
     );
   }
 }
+
+final _openQuestions = [
+  {
+    'question': 'How long is New Zealand’s Ninety Mile Beach?',
+    'answer': '88km, so 55 miles long.',
+    'score': true,
+  },
+];
