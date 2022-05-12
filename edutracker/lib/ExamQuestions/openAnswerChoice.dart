@@ -9,7 +9,7 @@ class openAnswerChoice extends StatefulWidget {
 
 class _openAnswerChoiceState extends State<openAnswerChoice> {
   bool endQuiz = false;
-  int questionList = 0;
+  int _questionList = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +26,16 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
           children: [
             Container(
               width: double.infinity,
-              height: 130.0,
+              height: 100.0,
               margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
               decoration: BoxDecoration(color: Colors.red[900]),
-              child: const Center(
+              child: Center(
                 child: Text(
-                  "Hier komt de vraag",
+                  _openQuestions[_questionList]['questionText'],
                   style: TextStyle(fontSize: 24, color: Colors.white),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
             Container(
               width: double.infinity,
               margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
@@ -46,7 +45,7 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
                     border: OutlineInputBorder(),
                   ),
                   // onChanged: (value) {
-                  //   if (_openQuestions[questionList]['answer'] == value) {}
+                  //   if (_openQuestions[_questionList]['answer'] == value) {}
                   // },
                 ),
               ),
@@ -66,8 +65,7 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
 
 final _openQuestions = [
   {
-    'question': 'How long is New Zealand’s Ninety Mile Beach?',
-    'answer': '88km, so 55 miles long.',
-    'score': true,
+    'questionText': 'Q1. How long is New Zealand’s Ninety Mile Beach?',
+    'answer': '88km',
   },
 ];

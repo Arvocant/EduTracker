@@ -88,7 +88,10 @@ class _multipleChoiceState extends State<multipleChoice> {
                   child: Text(
                     _questions[_questionList]['questionText']
                         as String, //'De vragen komen hier terecht'
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -157,20 +160,19 @@ final _questions = const [
     ],
   },
   {
-    'questionText': 'Who composed the music for Sonic the Hedgehog 3?',
+    'questionText': 'Q3. Which programing language is used by Flutter?',
     'answers': [
-      {'answerText': 'Britney Spears', 'score': false},
-      {'answerText': 'Timbaland', 'score': false},
-      {'answerText': 'Michael Jackson', 'score': true},
+      {'answerText': 'Ruby', 'score': false},
+      {'answerText': 'Dart', 'score': true},
+      {'answerText': 'Kotlin', 'score': false},
     ],
   },
   {
-    'questionText':
-        'In Georgia (the state), it’s illegal to eat what with a fork?',
+    'questionText': 'Q4. Who created Dart programing language?',
     'answers': [
-      {'answerText': 'Hamburgers', 'score': false},
-      {'answerText': 'Fried chicken', 'score': true},
-      {'answerText': 'Pizza', 'score': false},
+      {'answerText': 'Lars Bak and Kasper Lund', 'score': true},
+      {'answerText': 'Brendan Eich', 'score': false},
+      {'answerText': 'Bjarne Stroustrup', 'score': false},
     ],
   },
   {
