@@ -24,11 +24,11 @@ class _multipleChoiceState extends State<multipleChoice> {
         correctAswerSelected = true;
       }
       //Voeg de score tracker toe (optioneel)
-      _scoreTracker.add(
-        answerScore
-            ? Icon(Icons.check_circle, color: Colors.green)
-            : Icon(Icons.clear, color: Colors.red),
-      );
+      // _scoreTracker.add(
+      //   answerScore
+      //       ? Icon(Icons.check_circle, color: Colors.green)
+      //       : Icon(Icons.clear, color: Colors.red),
+      // );
       //Als alle vragen zijn geweest
       if (_questionList + 1 == _questions.length) {
         endQuiz = true;
