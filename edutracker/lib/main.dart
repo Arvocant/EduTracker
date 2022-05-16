@@ -4,6 +4,7 @@ import 'package:edutracker/ExamQuestions/multipleChoice.dart';
 import 'package:edutracker/ExamQuestions/openAnswerChoice.dart';
 import 'package:edutracker/LoginSignupScreen/login_final.dart';
 import 'package:edutracker/LoginSignupScreen/signup.dart';
+import 'package:edutracker/Maps/MapApp.dart';
 import 'package:edutracker/Students/studentList.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: openAnswerChoice(),
+        body: MapApp(),
       ),
     );
   }
