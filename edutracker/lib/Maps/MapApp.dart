@@ -6,7 +6,10 @@ import 'package:geolocator/geolocator.dart';
 import 'package:latlong/latlong.dart';
 
 class MapApp extends StatelessWidget {
-  LatLng point = null;
+  LatLng point;
+
+  String locationCoords;
+  var location = [];
 
   Future<Position> _getGeoLocationPosition() async {
     bool serviceEnabled;
@@ -14,9 +17,6 @@ class MapApp extends StatelessWidget {
     // Test if location services are enabled.
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      // Location services are not enabled don't continue
-      // accessing the position and request users of the
-      // App to enable the location services.
       await Geolocator.openLocationSettings();
       return Future.error('Location services are disabled.');
     }
@@ -28,12 +28,10 @@ class MapApp extends StatelessWidget {
       }
     }
     if (permission == LocationPermission.deniedForever) {
-      // Permissions are denied forever, handle appropriately.
       return Future.error(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
-    // When we reach here, permissions are granted and we can
-    // continue accessing the position of the device.
+
     return await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
   }
@@ -52,24 +50,8 @@ class MapApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        ElevatedButton(
-          onPressed: () async {
-            LatLng position = (await _getGeoLocationPosition()) as LatLng;
-            point = position;
-          },
-          child: const Text(
-            "Get current location",
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
         FlutterMap(
           options: MapOptions(
-            // onTap: (p) {
-            //   point = p;
-            //   // setState(() {
-            //   //   point = p;
-            //   // });
-            // },
             center: point,
             zoom: 10.0,
           ),
@@ -90,6 +72,42 @@ class MapApp extends StatelessWidget {
                       ))
             ])
           ],
+        ),
+        Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Card(
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text("Locatie: $locationCoords"),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  Position position = await _getGeoLocationPosition();
+                  location = await Geocoder.local.findAddressesFromCoordinates(
+                      Coordinates(position.latitude, position.longitude));
+
+                  var lat = position.latitude;
+                  var long = position.longitude;
+
+                  double latitude = double.parse("$lat");
+                  double longitude = double.parse("$long");
+
+                  LatLng positionLatLng = LatLng(latitude, longitude);
+
+                  locationCoords = "${latitude + longitude}";
+
+                  point = positionLatLng;
+                },
+                child: const Text(
+                  "Get current location",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
