@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: MapApp(),
+        body: openAnswerChoice(),
       ),
     );
   }
