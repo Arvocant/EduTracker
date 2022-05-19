@@ -17,11 +17,35 @@ class _AddQuestionsState extends State<AddQuestions> {
 
   TextEditingController inputController = TextEditingController();
 
-  void _awaitReturnValueFromSecondScreen(BuildContext context) async {
+  void _awaitReturnValueFromMultipleChoice(BuildContext context) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => AddMultipleChoice(),
+        ));
+
+    setState(() {
+      text += "+ ${result}\n";
+    });
+  }
+
+  void _awaitReturnValueFromOpenQ(BuildContext context) async {
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AddOpenQuestion(),
+        ));
+
+    setState(() {
+      text += "- ${result}\n";
+    });
+  }
+
+  void _awaitReturnValueFromCorrectCode(BuildContext context) async {
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AddCorrectCodeQuestion(),
         ));
 
     setState(() {
@@ -68,7 +92,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                           minimumSize: Size(200, 70),
                         ),
                         onPressed: () {
-                          _awaitReturnValueFromSecondScreen(context);
+                          _awaitReturnValueFromMultipleChoice(context);
                         },
                         icon: Icon(Icons.playlist_add_outlined),
                         label: Text("Multiple Choice"),
@@ -81,11 +105,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                         minimumSize: Size(200, 70),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddOpenQuestion()),
-                        );
+                        _awaitReturnValueFromOpenQ(context);
                       },
                       icon: Icon(Icons.playlist_add_outlined),
                       label: Text("Open Vraag"),
@@ -97,11 +117,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                         minimumSize: Size(200, 70),
                       ),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AddCorrectCodeQuestion()),
-                        );
+                        _awaitReturnValueFromCorrectCode(context);
                       },
                       icon: Icon(Icons.playlist_add_outlined),
                       label: Text("Correcte Code Vragen"),

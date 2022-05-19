@@ -13,7 +13,6 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
   TextEditingController antwoordenController = TextEditingController();
   TextEditingController oplossingController = TextEditingController();
 
-  // get the text in the TextField and start the Second Screen
   void _sendDataBack(BuildContext context) {
     String textToSendBack = vraagController.text;
     print(vraagController.text);
@@ -87,7 +86,7 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
                       hintText: "Alle antwoorden zijn gescheiden door ' ; '",
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (val) {
+                    onSubmitted: (val) {
                       setState(() {
                         antwoordenController.text = val.toString();
                         antwoordenController.text.split(';');
@@ -121,11 +120,6 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
                       hintText: "De juiste oplossing",
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (val) {
-                      setState(() {
-                        oplossingController.text = val.toString();
-                      });
-                    },
                   ),
                 ),
               ],

@@ -10,6 +10,12 @@ class AddOpenQuestion extends StatefulWidget {
 class _AddOpenQuestionState extends State<AddOpenQuestion> {
   TextEditingController vraagController = TextEditingController();
 
+  void _sendDataBack(BuildContext context) {
+    String textToSendBack = vraagController.text;
+    print(vraagController.text);
+    Navigator.pop(context, textToSendBack);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +52,6 @@ class _AddOpenQuestionState extends State<AddOpenQuestion> {
                       hintText: "Zet hier de vraag",
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (val) {
-                      setState(() {
-                        vraagController.text = val.toString();
-                      });
-                    },
                   ),
                 ),
               ],
@@ -62,7 +63,7 @@ class _AddOpenQuestionState extends State<AddOpenQuestion> {
                 minimumSize: Size(200, 70),
               ),
               onPressed: () {
-                Navigator.pop(context);
+                _sendDataBack(context);
               },
               child: Text("Vraag opslaan"),
             ),

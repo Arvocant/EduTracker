@@ -34,7 +34,7 @@ class _AdminHomeState extends State<AdminHome> {
                   MaterialPageRoute(builder: (context) => AddQuestions()),
                 );
               },
-              child: Text("Admin"),
+              child: Text("Examens"),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
