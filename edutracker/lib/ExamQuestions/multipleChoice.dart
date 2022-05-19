@@ -1,6 +1,8 @@
 import 'package:edutracker/ExamQuestions/answer.dart';
 import 'package:flutter/material.dart';
 
+import '../home/AdminHome.dart';
+
 class multipleChoice extends StatefulWidget {
   @override
   State<multipleChoice> createState() => _multipleChoiceState();
@@ -49,9 +51,13 @@ class _multipleChoiceState extends State<multipleChoice> {
   }
 
   void _goBack() {
-    setState(() {
-      _questionList = 0;
-    });
+    setState(
+      () {
+        _questionList = 0;
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => AdminHome()));
+      },
+    );
   }
 
   @override
