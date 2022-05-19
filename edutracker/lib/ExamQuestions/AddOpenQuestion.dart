@@ -9,8 +9,6 @@ class AddOpenQuestion extends StatefulWidget {
 
 class _AddOpenQuestionState extends State<AddOpenQuestion> {
   TextEditingController vraagController = TextEditingController();
-  TextEditingController antwoordenController = TextEditingController();
-  TextEditingController oplossingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
