@@ -14,6 +14,20 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("eduTracker"),
       ),
+      body: Center(
+        child: Row(
+          children: const [
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Student"),
+            ),
+            ElevatedButton(
+              onPressed: null,
+              child: Text("Admin"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

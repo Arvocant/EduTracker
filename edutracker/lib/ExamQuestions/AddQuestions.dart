@@ -1,3 +1,4 @@
+import 'package:edutracker/ExamQuestions/AddMultipleChoice.dart';
 import 'package:flutter/material.dart';
 
 class AddQuestions extends StatefulWidget {
@@ -22,16 +23,46 @@ class _AddQuestionsState extends State<AddQuestions> {
         centerTitle: true,
       ),
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                child: Center(
-                  child: TextField(),
-                ),
-              )
-            ],
-          ),
+        child: Row(
+          children: [
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                onPrimary: Colors.white,
+                minimumSize: Size(300, 200),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddMultipleChoice()),
+                );
+              },
+              child: Text("Multiple Choice"),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                onPrimary: Colors.white,
+                minimumSize: Size(60, 40),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddMultipleChoice()),
+                );
+              },
+              child: Text("Open Vraag"),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                onPrimary: Colors.white,
+                minimumSize: Size(60, 40),
+              ),
+              onPressed: null,
+              child: Text("Wachtwoord wijzigen"),
+            ),
+          ],
         ),
       ),
     );
