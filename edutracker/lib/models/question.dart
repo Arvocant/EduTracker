@@ -1,7 +1,5 @@
 enum Type {
-  mc,
-  oq,
-  cc
+  multiplechoice,  openquestion,  codecorrection  
 }
 
 class Question {
@@ -9,7 +7,7 @@ class Question {
   int question_number = 0;
   String title = "";
   String answ = "";
-  Type type = Type.mc;
+  Type type = Type.multiplechoice;
 
   Question(String qid, String , String title, Type type) {
     this.qid = qid;
