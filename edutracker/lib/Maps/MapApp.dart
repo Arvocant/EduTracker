@@ -13,7 +13,7 @@ class MapApp extends StatefulWidget {
 }
 
 class _MapAppState extends State<MapApp> {
-  LatLng point = LatLng(51.229966, 4.416109);
+  LatLng point;
 
   String locationCoords;
   var location = [];
