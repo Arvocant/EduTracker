@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:edutracker/ExamQuestions/AddCorrectCodeQuestion.dart';
-import 'package:edutracker/ExamQuestions/AddMultipleChoice.dart';
-import 'package:edutracker/ExamQuestions/AddOpenQuestion.dart';
+import 'package:edutracker/AddQuestions/AddCorrectCodeQuestion.dart';
+import 'package:edutracker/AddQuestions/AddMultipleChoice.dart';
+import 'package:edutracker/AddQuestions/AddOpenQuestion.dart';
+import 'package:edutracker/AddQuestions/AddQuestions.dart';
 import 'package:edutracker/ExamQuestions/correctTheCode.dart';
 import 'package:edutracker/ExamQuestions/multipleChoice.dart';
 import 'package:edutracker/ExamQuestions/openAnswerChoice.dart';
@@ -10,6 +11,8 @@ import 'package:edutracker/LoginSignupScreen/login_final.dart';
 import 'package:edutracker/LoginSignupScreen/signup.dart';
 import 'package:edutracker/Maps/MapApp.dart';
 import 'package:edutracker/Students/studentList.dart';
+import 'package:edutracker/home/AdminHome.dart';
+import 'package:edutracker/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: AddCorrectCodeQuestion(),
+        body: Login(),
       ),
     );
   }

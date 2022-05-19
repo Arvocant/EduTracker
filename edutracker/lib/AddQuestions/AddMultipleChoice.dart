@@ -124,7 +124,7 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.indigo,
+                primary: Colors.red,
                 onPrimary: Colors.white,
                 minimumSize: Size(200, 70),
               ),

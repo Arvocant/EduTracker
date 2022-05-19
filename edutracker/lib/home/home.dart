@@ -1,3 +1,4 @@
+import 'package:edutracker/home/AdminHome.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,14 +17,30 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: Row(
-          children: const [
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
             ElevatedButton(
-              onPressed: null,
-              child: Text("Student"),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                onPrimary: Colors.white,
+                minimumSize: Size(300, 200),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AdminHome()),
+                );
+              },
+              child: Text("Admin"),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                onPrimary: Colors.white,
+                minimumSize: Size(300, 200),
+              ),
               onPressed: null,
-              child: Text("Admin"),
+              child: Text("Student"),
             ),
           ],
         ),
