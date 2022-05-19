@@ -18,7 +18,7 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
-          'Add Questions',
+          'Voeg Multiple Choice Toe',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -124,7 +124,7 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.red,
+                primary: Colors.indigo,
                 onPrimary: Colors.white,
                 minimumSize: Size(200, 70),
               ),

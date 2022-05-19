@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:edutracker/ExamQuestions/AddMultipleChoice.dart';
+import 'package:edutracker/ExamQuestions/AddOpenQuestion.dart';
 import 'package:edutracker/ExamQuestions/correctTheCode.dart';
 import 'package:edutracker/ExamQuestions/multipleChoice.dart';
 import 'package:edutracker/ExamQuestions/openAnswerChoice.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: AddMultipleChoice(),
+        body: AddOpenQuestion(),
       ),
     );
   }
