@@ -1,3 +1,4 @@
+import 'package:edutracker/AddQuestions/AddQuestions.dart';
 import 'package:flutter/material.dart';
 
 class AddMultipleChoice extends StatefulWidget {
@@ -11,6 +12,13 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
   TextEditingController vraagController = TextEditingController();
   TextEditingController antwoordenController = TextEditingController();
   TextEditingController oplossingController = TextEditingController();
+
+  // get the text in the TextField and start the Second Screen
+  void _sendDataBack(BuildContext context) {
+    String textToSendBack = vraagController.text;
+    print(vraagController.text);
+    Navigator.pop(context, textToSendBack);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +56,11 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
                       hintText: "Zet hier de vraag",
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (val) {
-                      setState(() {
-                        vraagController.text = val.toString();
-                      });
-                    },
+                    // onChanged: (val) {
+                    //   setState(() {
+                    //     vraagController.text = val.toString();
+                    //   });
+                    // },
                   ),
                 ),
               ],
@@ -129,7 +137,7 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
                 minimumSize: Size(200, 70),
               ),
               onPressed: () {
-                Navigator.pop(context);
+                _sendDataBack(context);
               },
               child: Text("Vraag opslaan"),
             ),

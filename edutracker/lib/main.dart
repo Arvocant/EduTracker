@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_import
 
 import 'package:edutracker/AddQuestions/AddCorrectCodeQuestion.dart';
 import 'package:edutracker/AddQuestions/AddMultipleChoice.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       //home: login_final(),
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
-        body: openAnswerChoice(),
+        body: AddQuestions(),
       ),
     );
   }

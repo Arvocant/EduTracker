@@ -6,14 +6,28 @@ import 'package:edutracker/AddQuestions/AddCorrectCodeQuestion.dart';
 import 'package:flutter/material.dart';
 
 class AddQuestions extends StatefulWidget {
-  AddQuestions({Key key}) : super(key: key);
+  AddQuestions({Key key, String text}) : super(key: key);
 
   @override
   State<AddQuestions> createState() => _AddQuestionsState();
 }
 
 class _AddQuestionsState extends State<AddQuestions> {
+  String text = "Hier komen de vragen: \n";
+
   TextEditingController inputController = TextEditingController();
+
+  void _awaitReturnValueFromSecondScreen(BuildContext context) async {
+    final result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => AddMultipleChoice(),
+        ));
+
+    setState(() {
+      text += "~ ${result}\n";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +46,7 @@ class _AddQuestionsState extends State<AddQuestions> {
             Padding(
               padding: EdgeInsets.all(40),
               child: Text(
-                "Hier komen de vragen",
+                text ?? "Hier komen de vragen", //Hier komt de dynamische tekst
                 style: TextStyle(
                     fontSize: 24,
                     color: Colors.indigo,
@@ -54,11 +68,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                           minimumSize: Size(200, 70),
                         ),
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AddMultipleChoice()),
-                          );
+                          _awaitReturnValueFromSecondScreen(context);
                         },
                         icon: Icon(Icons.playlist_add_outlined),
                         label: Text("Multiple Choice"),

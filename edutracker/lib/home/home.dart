@@ -1,4 +1,5 @@
 import 'package:edutracker/LoginSignupScreen/login.dart';
+import 'package:edutracker/Students/studentList.dart';
 import 'package:edutracker/home/AdminHome.dart';
 import 'package:flutter/material.dart';
 
@@ -40,7 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPrimary: Colors.white,
                 minimumSize: Size(300, 200),
               ),
-              onPressed: null,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => StudentList()),
+                );
+              },
               child: Text("Student"),
             ),
           ],
