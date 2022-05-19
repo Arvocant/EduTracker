@@ -5,8 +5,15 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong/latlong.dart';
 
-class MapApp extends StatelessWidget {
-  LatLng point;
+class MapApp extends StatefulWidget {
+  MapApp({Key key}) : super(key: key);
+
+  @override
+  State<MapApp> createState() => _MapAppState();
+}
+
+class _MapAppState extends State<MapApp> {
+  LatLng point = LatLng(51.229966, 4.416109);
 
   String locationCoords;
   var location = [];
@@ -41,8 +48,7 @@ class MapApp extends StatelessWidget {
   //       await placemarkFromCoordinates(position.latitude, position.longitude);
   //   print(placemarks);
   //   Placemark place = placemarks[0];
-  //   Address =
-  //       '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+  //   //Address ='${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
   //   setState(() {});
   // }
 
