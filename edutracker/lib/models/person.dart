@@ -23,11 +23,20 @@ class Person {
 
   Person.fromDB(this.pid, Map data) {
     pid = data['pid'].toString();
+    studentId = data['studentId'].toString();
     birthdate = DateTime.parse(data['birthdate']);
     firstname = data['firstname'].toString();
     lastname = data['lastname'].toString();
     role = Role.values.firstWhere((e) =>  e.toString() == data['role'].toString());
   }
 
-  
+  @override
+  String toString() {
+    return "pid: " + pid
+    + '\n\t' + "studentId:  " + studentId.toString()
+    + '\n\t' + "birthdate:  " + birthdate.toString()
+    + '\n\t' + "firstname:  " + firstname.toString()
+    + '\n\t' + "lastname:   " + lastname.toString()
+    + '\n\t' + "role:       " + role.toString();
+  }
 }
