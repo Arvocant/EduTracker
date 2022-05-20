@@ -53,7 +53,7 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
       appBar: AppBar(
         title: const Text(
           'Open Choice Exam',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
         centerTitle: true,
       ),

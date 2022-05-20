@@ -62,7 +62,7 @@ class _ChoiceTypeExamState extends State<ChoiceTypeExam> {
       appBar: AppBar(
         title: const Text(
           'Add Questions',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
         centerTitle: true,
       ),

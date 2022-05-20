@@ -63,7 +63,7 @@ class _multipleChoiceState extends State<multipleChoice> {
         appBar: AppBar(
           title: const Text(
             'Multiple Choice Exam',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 30),
           ),
           centerTitle: true,
         ),

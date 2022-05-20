@@ -26,7 +26,7 @@ class _AddMultipleChoiceState extends State<AddMultipleChoice> {
       appBar: AppBar(
         title: const Text(
           'Voeg Multiple Choice Toe',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
         centerTitle: true,
       ),

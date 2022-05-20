@@ -23,7 +23,7 @@ class _AddOpenQuestionState extends State<AddOpenQuestion> {
       appBar: AppBar(
         title: const Text(
           'Voeg een open vraag toe',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
         centerTitle: true,
       ),

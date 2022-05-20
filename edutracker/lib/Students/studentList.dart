@@ -37,7 +37,7 @@ class _StudentListState extends State<StudentList> {
         appBar: AppBar(
           title: const Text(
             'Student List',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 30),
           ),
           centerTitle: true,
         ),

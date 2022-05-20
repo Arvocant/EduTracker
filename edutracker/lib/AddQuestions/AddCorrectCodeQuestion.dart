@@ -24,7 +24,7 @@ class _AddCorrectCodeQuestionState extends State<AddCorrectCodeQuestion> {
       appBar: AppBar(
         title: const Text(
           'Voeg een Code Correctie vraag toe',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
         centerTitle: true,
       ),

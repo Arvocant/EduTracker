@@ -53,7 +53,7 @@ class _correctTheCodeState extends State<correctTheCode> {
       appBar: AppBar(
         title: const Text(
           'Correct The Code',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 30),
         ),
         centerTitle: true,
       ),
