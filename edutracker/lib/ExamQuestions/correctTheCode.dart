@@ -43,6 +43,7 @@ class _correctTheCodeState extends State<correctTheCode> {
     setState(() {
       _questionList = 0;
     });
+    Navigator.pop(context);
   }
 
   @override

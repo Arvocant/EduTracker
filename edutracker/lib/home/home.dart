@@ -15,9 +15,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("eduTracker"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("eduTracker"),
+      // ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

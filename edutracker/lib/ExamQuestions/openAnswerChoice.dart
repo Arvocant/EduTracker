@@ -43,6 +43,7 @@ class _openAnswerChoiceState extends State<openAnswerChoice> {
     setState(() {
       _questionList = 0;
     });
+    Navigator.pop(context);
   }
 
   @override

@@ -51,13 +51,10 @@ class _multipleChoiceState extends State<multipleChoice> {
   }
 
   void _goBack() {
-    setState(
-      () {
-        _questionList = 0;
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => AdminHome()));
-      },
-    );
+    setState(() {
+      _questionList = 0;
+    });
+    Navigator.pop(context);
   }
 
   @override
