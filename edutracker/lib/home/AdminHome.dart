@@ -1,21 +1,22 @@
-import 'package:edutracker/LoginSignupScreen/login.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:edutracker/AddQuestions/AddQuestions.dart';
 import 'package:edutracker/Students/studentList.dart';
-import 'package:edutracker/home/AdminHome.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class AdminHome extends StatefulWidget {
+  AdminHome({Key key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<AdminHome> createState() => _AdminHomeState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("eduTracker"),
+        title: Text("Admin Home"),
       ),
       body: Center(
         child: Row(
@@ -30,10 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AdminHome()),
+                  MaterialPageRoute(builder: (context) => AddQuestions()),
                 );
               },
-              child: Text("Admin"),
+              child: Text("Examens"),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -47,7 +48,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   MaterialPageRoute(builder: (context) => StudentList()),
                 );
               },
-              child: Text("Student"),
+              child: Text("Students"),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey,
+                onPrimary: Colors.white,
+                minimumSize: Size(300, 200),
+              ),
+              onPressed: null,
+              child: Text("Wachtwoord wijzigen"),
             ),
           ],
         ),

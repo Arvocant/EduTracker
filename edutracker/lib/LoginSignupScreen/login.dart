@@ -1,7 +1,10 @@
+import 'package:edutracker/LoginSignupScreen/signup.dart';
 import 'package:flutter/material.dart';
 
+import '../home/AdminHome.dart';
+
 class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+  const Login({Key key}) : super(key: key);
 
   @override
   State<Login> createState() => _LoginState();
@@ -57,15 +60,16 @@ class _LoginState extends State<Login> {
                 style: TextStyle(fontSize: 24),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
-                style: TextStyle(fontSize: 24),
-              ),
-            ),
+            const SizedBox(height: 40),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //     style: TextStyle(fontSize: 24),
+            //   ),
+            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -75,8 +79,10 @@ class _LoginState extends State<Login> {
                     style: TextStyle(fontSize: 30),
                   ),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AdminHome()),
+                    );
                   },
                 )),
             Row(
@@ -90,9 +96,7 @@ class _LoginState extends State<Login> {
                     'Sign up',
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {
-                    //signup screen
-                  },
+                  onPressed: () {},
                 )
               ],
               mainAxisAlignment: MainAxisAlignment.center,
