@@ -1,4 +1,5 @@
 import 'package:edutracker/LoginSignupScreen/login.dart';
+import 'package:edutracker/Maps/MapApp.dart';
 import 'package:edutracker/Students/studentList.dart';
 import 'package:edutracker/home/AdminHome.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => StudentList()),
+                  MaterialPageRoute(builder: (context) => MapApp()),
                 );
               },
               child: Text("Student"),

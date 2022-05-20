@@ -1,3 +1,5 @@
+import 'package:edutracker/ExamQuestions/multipleChoice.dart';
+import 'package:edutracker/StudentExam/ChoiceTypeExam.dart';
 import 'package:flutter/material.dart';
 
 class StudentList extends StatefulWidget {
@@ -32,36 +34,50 @@ class _StudentListState extends State<StudentList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: persons.map((personas) {
-            return Container(
-              child: Card(
-                child: ListTile(
-                  // We willen aparte vakjes hebben zoals bij android listView
-                  title: Text(personas.name),
-                  subtitle: Text(personas.studentId),
-                  trailing: ElevatedButton(
-                    child: Icon(Icons.clear),
-                    onPressed: () {
-                      //delete action voor de knop
-                      persons.removeWhere((element) {
-                        return element.id == personas.id;
-                      });
-                      setState(() {
-                        //refresh UI na het verwijderen uit de lijst
-                      });
-                    },
-                  ),
-                ),
-              ),
-            );
-          }).toList(),
+        appBar: AppBar(
+          title: const Text(
+            'Student List',
+            style: TextStyle(color: Colors.white),
+          ),
+          centerTitle: true,
         ),
-      ),
-    ));
+        body: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: persons.map((personas) {
+                return Container(
+                  child: Card(
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChoiceTypeExam()),
+                        );
+                      },
+                      // We willen aparte vakjes hebben zoals bij android listView
+                      title: Text(personas.name),
+                      subtitle: Text(personas.studentId),
+                      trailing: ElevatedButton(
+                        child: Icon(Icons.clear),
+                        onPressed: () {
+                          //delete action voor de knop
+                          persons.removeWhere((element) {
+                            return element.id == personas.id;
+                          });
+                          setState(() {
+                            //refresh UI na het verwijderen uit de lijst
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+        ));
   }
 }
 
