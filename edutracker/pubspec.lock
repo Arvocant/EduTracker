@@ -157,6 +157,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.2.0"
+<<<<<<< HEAD
   geocoder:
     dependency: "direct main"
     description:
@@ -194,14 +195,21 @@ packages:
     version: "1.0.9"
   intl:
     dependency: transitive
+=======
+  intl:
+    dependency: "direct main"
+>>>>>>> 9b80e70de125546126b4a59b634c3eb6d7c6158d
     description:
       name: intl
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.17.0"
+<<<<<<< HEAD
 =======
   
 >>>>>>> origin/Dev
+=======
+>>>>>>> 9b80e70de125546126b4a59b634c3eb6d7c6158d
   js:
     dependency: transitive
     description:

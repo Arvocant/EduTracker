@@ -6,13 +6,15 @@ enum Role {
 
 class Person {
   String pid = "";
+  String studentId = "";
   DateTime birthdate = DateTime.now();
   String firstname = "";
   String lastname = "";
   Role role = Role.student;
 
-  Person(String pid, DateTime birthdate, String firstname, String lastname, Role role) {
+  Person(String pid, String studentId, DateTime birthdate, String firstname, String lastname, Role role) {
     this.pid = pid;
+    this.studentId = studentId;
     this.birthdate = birthdate;
     this.firstname = firstname;
     this.lastname = lastname;
@@ -21,6 +23,7 @@ class Person {
 
   Person.fromDB(this.pid, Map data) {
     pid = data['pid'].toString();
+    studentId = data['studentId'].toString();
     birthdate = DateTime.parse(data['birthdate']);
     firstname = data['firstname'].toString();
     lastname = data['lastname'].toString();
@@ -30,6 +33,7 @@ class Person {
   @override
   String toString() {
     return "pid: " + pid
+    + '\n\t' + "studentId:  " + studentId.toString()
     + '\n\t' + "birthdate:  " + birthdate.toString()
     + '\n\t' + "firstname:  " + firstname.toString()
     + '\n\t' + "lastname:   " + lastname.toString()

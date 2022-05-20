@@ -18,7 +18,7 @@ class DatabaseService {
       if (snap != null && snap.value != null) {
         Map<dynamic, dynamic> data = snap.value as Map<dynamic, dynamic>;
 
-        List<Person> allStudents = List<Person>.filled(500, new Person("", DateTime.now(), "", "", Role.student), growable:true);
+        List<Person> allStudents = List<Person>.filled(500, new Person("", "",DateTime.now(), "", "", Role.student), growable:true);
 
         data.forEach((key, value) {
           allStudents.add(Person.fromDB(key, value));
@@ -26,12 +26,12 @@ class DatabaseService {
 
         return allStudents;
       } else {
-        return List<Person>.filled(500, new Person("", DateTime.now(), "", "", Role.student));
+        return List<Person>.filled(500, new Person("", "",DateTime.now(), "", "", Role.student));
       }
     } on Exception catch (e) {
       print(e);
     }
-    return List<Person>.filled(500, new Person("", DateTime.now(), "", "", Role.student));
+    return List<Person>.filled(500, new Person("", "",DateTime.now(), "", "", Role.student));
   }
 
   Future<List<Person>> getAllTeachers() async {
@@ -46,7 +46,7 @@ class DatabaseService {
       if (snap != null && snap.value != null) {
         Map<dynamic, dynamic> data = snap.value as Map<dynamic, dynamic>;
 
-        List<Person> allStudents = List<Person>.filled(500, new Person("", DateTime.now(), "", "", Role.student), growable:true);
+        List<Person> allStudents = List<Person>.filled(500, new Person("", "",DateTime.now(), "", "", Role.student), growable:true);
 
         data.forEach((key, value) {
           allStudents.add(Person.fromDB(key, value));
@@ -54,12 +54,12 @@ class DatabaseService {
 
         return allStudents;
       } else {
-        return List<Person>.filled(500, new Person("", DateTime.now(), "", "", Role.student));
+        return List<Person>.filled(500, new Person("", "",DateTime.now(), "", "", Role.student));
       }
     } on Exception catch (e) {
       print(e);
     }
-    return List<Person>.filled(500, new Person("", DateTime.now(), "", "", Role.student));
+    return List<Person>.filled(500, new Person("", "",DateTime.now(), "", "", Role.student));
   }
 
 
@@ -72,10 +72,10 @@ class DatabaseService {
       if (snap.value == null) {
 
         print("Creating new Database");
-        Person a = Person(ourDB.push().key.toString(), DateTime.now(), "John", "Doe", Role.student);
-        Person b = Person(ourDB.push().key.toString(), DateTime.now(), "Frieda", "Kroket", Role.teacher);
-        Person c = Person(ourDB.push().key.toString(), DateTime.now(), "Thibaut", "Weekx", Role.admin);
-        Person d = Person(ourDB.push().key.toString(), DateTime.now(), "Arvo", "Cunt", Role.admin);
+        Person a = Person(ourDB.push().key.toString(), "s102910" ,DateTime.now(), "John", "Doe", Role.student);
+        Person b = Person(ourDB.push().key.toString(), "p129802",DateTime.now(), "Frieda", "Kroket", Role.teacher);
+        Person c = Person(ourDB.push().key.toString(), "p192831",DateTime.now(), "Thibaut", "Weekx", Role.admin);
+        Person d = Person(ourDB.push().key.toString(), "s120912",DateTime.now(), "Arvo", "Cunt", Role.student);
 
         await ourDB.child('users').child(a.pid).set(a);
         await ourDB.child('users').child(b.pid).set(b);
