@@ -73,7 +73,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                 text ?? "Hier komen de vragen", //Hier komt de dynamische tekst
                 style: TextStyle(
                     fontSize: 24,
-                    color: Colors.indigo,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -87,7 +87,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                       padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
                       child: ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.indigo,
+                          primary: Colors.black,
                           onPrimary: Colors.white,
                           minimumSize: Size(200, 70),
                         ),
@@ -100,7 +100,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                     ),
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo,
+                        primary: Colors.black,
                         onPrimary: Colors.white,
                         minimumSize: Size(200, 70),
                       ),
@@ -112,7 +112,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                     ),
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.indigo,
+                        primary: Colors.black,
                         onPrimary: Colors.white,
                         minimumSize: Size(200, 70),
                       ),

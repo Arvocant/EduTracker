@@ -1,6 +1,9 @@
 import 'package:edutracker/ExamQuestions/multipleChoice.dart';
 import 'package:edutracker/StudentExam/ChoiceTypeExam.dart';
+import 'package:edutracker/Students/personas.dart';
 import 'package:flutter/material.dart';
+
+import 'AddStudent.dart';
 
 class StudentList extends StatefulWidget {
   const StudentList({Key key}) : super(key: key);
@@ -10,18 +13,11 @@ class StudentList extends StatefulWidget {
 }
 
 class _StudentListState extends State<StudentList> {
-  List<Person> persons = [];
+  List<Personas> persons = [];
 
-  @override
-  void initState() {
-    //adding item to list, you can add using json from network
-    persons.add(Person(id: "1", name: "Arvo", studentId: "s112233"));
-    persons.add(Person(id: "2", name: "Thibault", studentId: "s112233"));
-    persons.add(Person(id: "3", name: "Siebe", studentId: "s112233"));
-    persons.add(Person(id: "4", name: "Niels", studentId: "s112233"));
-
-    super.initState();
-  }
+  TextEditingController idController = TextEditingController();
+  TextEditingController naamController = TextEditingController();
+  TextEditingController sNummerController = TextEditingController();
 
   // List<String> studentlist = <String>[
   //   'Arvo',
@@ -33,56 +29,74 @@ class _StudentListState extends State<StudentList> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Student List',
-            style: TextStyle(color: Colors.white, fontSize: 30),
-          ),
-          centerTitle: true,
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
-              children: persons.map((personas) {
-                return Container(
-                  child: Card(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ChoiceTypeExam()),
-                        );
-                      },
-                      // We willen aparte vakjes hebben zoals bij android listView
-                      title: Text(personas.name),
-                      subtitle: Text(personas.studentId),
-                      trailing: ElevatedButton(
-                        child: Icon(Icons.clear),
-                        onPressed: () {
-                          //delete action voor de knop
-                          persons.removeWhere((element) {
-                            return element.id == personas.id;
-                          });
-                          setState(() {
-                            //refresh UI na het verwijderen uit de lijst
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                );
-              }).toList(),
-            ),
-          ),
-        ));
-  }
-}
+    void addStudents(Personas person) {
+      setState(() {
+        persons.add(person);
+      });
+    }
 
-class Person {
-  //modal class for Person object
-  String id, name, studentId;
-  Person({this.id, this.name, this.studentId});
+    void showUserDialog() {
+      showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            content: AddStudentDialog(addStudents),
+          );
+        },
+      );
+    }
+
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: showUserDialog,
+        child: Icon(Icons.add),
+      ),
+      appBar: AppBar(
+        title: const Text(
+          'Student List',
+          style: TextStyle(color: Colors.white, fontSize: 30),
+        ),
+        centerTitle: true,
+      ),
+      body: Container(
+        height: 800,
+        //padding: EdgeInsets.all(10),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return Card(
+              margin: EdgeInsets.all(4),
+              elevation: 8,
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChoiceTypeExam()),
+                  );
+                },
+                // We willen aparte vakjes hebben zoals bij android listView
+                title: Text(persons[index].name),
+                subtitle: Text(persons[index].studentId),
+                trailing: ElevatedButton(
+                  child: Icon(Icons.clear),
+                  onPressed: () {
+                    //delete action voor de knop
+                    persons.removeWhere((element) {
+                      return element.id == persons[index].id;
+                    });
+                    setState(() {
+                      //refresh UI na het verwijderen uit de lijst
+                    });
+                  },
+                ),
+              ),
+            );
+          },
+          itemCount: persons.length,
+        ),
+      ),
+    );
+  }
 }
