@@ -7,7 +7,7 @@ class QuestionList extends StatefulWidget {
 
   QuestionList({
     required this.questionItems,
-    required this.onClicked
+     required this.onClicked
   });
 
   @override

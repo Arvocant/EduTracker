@@ -12,6 +12,8 @@ class Person {
   String lastname = "";
   Role role = Role.student;
 
+  static List<String> fields = ['pid', 'firstname', 'lastname'];
+
   Person(String pid, String studentId, DateTime birthdate, String firstname, String lastname, Role role) {
     this.pid = pid;
     this.studentId = studentId;
