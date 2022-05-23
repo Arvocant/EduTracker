@@ -1,4 +1,4 @@
 # EduTracker
 Flutter Based Exam Project
 
-Test Commit
+De edutracker biedt een gemakkelijke omgeving aan leerkracht en student voor de Examenperiode te doorstaan!
